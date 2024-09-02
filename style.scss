@@ -1,149 +1,225 @@
-@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,500;0,700;0,900;1,500;1,700;1,900&display=swap");
+// Font
+// Font family
+$root-font-family: "Red Hat Display", sans-serif;
+// Font size
+$root-font-size: 16px;
+
+// Color
+// Primary Color
+$pale-blue: hsl(225, 100%, 94%);
+$bright-blue: hsl(245, 75%, 52%);
+// Neutral Color
+$very-pale-blue: hsl(225, 100%, 98%);
+$desaturated-blue: hsl(224, 23%, 55%);
+$dark-blue: hsl(223, 47%, 23%);
 
 * {
   margin: 0;
   padding: 0;
   overflow: hidden;
   box-sizing: border-box;
-  font-family: "Red Hat Display", sans-serif;
-}
-
-:root {
-  font-size: 16px;
+  font-family: $root-font-family;
+  font-size: $root-font-size;
+  font-weight: 500;
 }
 
 body {
-  background-color: hsl(225, 100%, 94%);
+  background-color: $pale-blue;
 
-  .container {
-    width: 320px;
-    height: 550px;
-
+  main {
+    background-color: white;
     position: absolute;
-    top: 50%;
     left: 50%;
+    top: 50%;
     translate: -50% -50%;
-
     border-radius: 20px;
 
-    background-color: hsl(0, 0%, 100%);
+    display: grid;
+    grid-template-rows: fit-content(100%) 1fr;
+
+    box-shadow: 0 20px 30px rgba($color: $bright-blue, $alpha: 0.15);
 
     img {
       width: 100%;
-      height: 30%;
     }
 
     .info {
       width: 100%;
-      height: 70%;
-
-      padding: 30px 20px 40px 20px;
+      height: 100%;
 
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      align-items: center;
-      text-align: center;
 
       h1 {
-        font-size: 1.5rem;
-        color: hsl(223, 47%, 23%);
+        font-weight: 900;
+        text-align: center;
+        color: $dark-blue;
       }
 
       p {
-        padding: 0 20px;
-        color: hsl(224, 23%, 55%);
-        font-size: 0.9rem;
-        line-height: 1.5rem;
+        text-align: center;
+        color: $desaturated-blue;
       }
 
       .plan-card {
         width: 100%;
-        height: 70px;
-
-        padding: 10px 15px;
-
+        background-color: $very-pale-blue;
         display: flex;
         justify-content: space-between;
         align-items: center;
-
-        background-color: hsl(225, 100%, 98%);
-
         border-radius: 10px;
 
         .plan {
           display: flex;
 
           img {
-            width: 45px;
+            width: fit-content;
+            height: 100%;
             margin-right: 20px;
           }
 
           .plan-price {
-            text-align: left;
-
             display: flex;
             flex-direction: column;
-            justify-content: space-evenly;
+            justify-content: space-around;
 
             .plan-name {
+              color: $dark-blue;
               font-weight: 700;
-              font-size: 0.9rem;
             }
 
             .price {
-              font-weight: 500;
-              font-size: 0.9rem;
-              color: hsl(224, 23%, 55%);
+              color: $desaturated-blue;
             }
           }
         }
 
         .change {
-          font-size: 0.8rem;
           font-weight: 700;
+          color: $bright-blue;
           text-decoration: underline;
-          color: hsl(245, 75%, 52%);
         }
 
         .change:hover {
-          color: hsla(245, 75%, 52%, 0.5);
           text-decoration: none;
+          color: rgba($color: $bright-blue, $alpha: 0.7);
           cursor: pointer;
         }
       }
 
       button {
+        color: white;
+        background-color: $bright-blue;
+        font-weight: 700;
         width: 100%;
-        height: 45px;
-
-        border-radius: 10px;
-
         outline: none;
         border: none;
+        border-radius: 10px;
 
-        font-size: 0.9rem;
-        font-weight: 700;
-
-        color: hsl(225, 100%, 98%);
-        background-color: hsl(245, 75%, 52%);
-
-        box-shadow: 0px 20px 20px hsla(245, 75%, 52%, 0.2);
+        box-shadow: 0 10px 15px rgba($color: $bright-blue, $alpha: 0.3);
       }
 
       button:hover {
-        background-color: hsla(245, 75%, 52%, 0.5);
+        background-color: rgba($color: $bright-blue, $alpha: 0.7);
         cursor: pointer;
       }
 
-      .cancel {
+      p.cancel {
+        color: $desaturated-blue;
         font-weight: 700;
-        color: hsl(224, 23%, 55%);
       }
 
-      .cancel:hover {
-        color: hsl(223, 47%, 23%);
+      p.cancel:hover {
         cursor: pointer;
+        color: $dark-blue;
+      }
+    }
+  }
+}
+
+@media (min-width: 375px) and (max-width: 1439px) {
+  body {
+    background-image: url(source/images/pattern-background-mobile.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    main {
+      width: 330px;
+      height: 570px;
+
+      .info {
+        padding: 35px 25px;
+
+        h1 {
+          font-size: 1.4rem;
+        }
+
+        p {
+          font-size: 0.9rem;
+          padding: 0 15px;
+          line-height: 1.5rem;
+        }
+
+        .plan-card {
+          height: 80px;
+          padding: 15px;
+
+          .plan {
+            .plan-price {
+              .plan-name,
+              .price {
+                font-size: 0.9rem;
+              }
+            }
+          }
+
+          .change {
+            font-size: 0.8rem;
+          }
+        }
+
+        button {
+          height: 50px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1440px) {
+  body {
+    background-image: url(source/images/pattern-background-desktop.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    main {
+      width: 450px;
+      height: 700px;
+
+      .info {
+        padding: 50px 45px;
+
+        h1 {
+          font-size: 2rem;
+        }
+
+        p {
+          font-size: 1rem;
+          line-height: 1.7rem;
+        }
+
+        .plan-card {
+          height: 100px;
+          padding: 25px;
+
+          .change {
+            font-size: 0.9rem;
+          }
+        }
+
+        button {
+          height: 50px;
+        }
       }
     }
   }
