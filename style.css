@@ -3,170 +3,184 @@
   padding: 0;
   overflow: hidden;
   box-sizing: border-box;
+  color: hsl(224, 23%, 55%);
   font-family: "Red Hat Display", sans-serif;
   font-size: 16px;
   font-weight: 500;
 }
 
 body {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(./sources/images/pattern-background-mobile.svg);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: contain;
   background-color: hsl(225, 100%, 94%);
 }
-body main {
-  background-color: white;
+body main.card-container {
+  width: 327px;
+  height: 567px;
   position: absolute;
-  left: 50%;
   top: 50%;
+  left: 50%;
   translate: -50% -50%;
-  border-radius: 20px;
-  display: grid;
-  grid-template-rows: fit-content(100%) 1fr;
-  box-shadow: 0 20px 30px rgba(56, 41, 224, 0.15);
-}
-body main img {
-  width: 100%;
-}
-body main .info {
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 0px 20px 20px -1px rgba(56, 41, 224, 0.1);
 }
-body main .info h1 {
-  font-weight: 900;
-  text-align: center;
-  color: hsl(223, 47%, 23%);
-}
-body main .info p {
-  text-align: center;
-  color: hsl(224, 23%, 55%);
-}
-body main .info .plan-card {
+body main.card-container img.cover-image {
   width: 100%;
-  background-color: hsl(225, 100%, 98%);
+  height: 160px;
+}
+body main.card-container section.card-info {
+  width: 100%;
+  height: calc(100% - 160px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 24px;
+}
+body main.card-container section.card-info h1.card-title {
+  font-size: 1.38rem;
+  font-weight: 900;
+  color: hsl(223, 47%, 23%);
+  margin-bottom: -9px;
+}
+body main.card-container section.card-info p.card-detail {
+  font-size: 0.92rem;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.55rem;
+  letter-spacing: 0.2px;
+  padding: 0 10px;
+}
+body main.card-container section.card-info div.card-plan {
+  width: 100%;
+  height: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 10px;
+  padding: 17px;
+  background: hsl(225, 100%, 98%);
+  border-radius: 13px;
 }
-body main .info .plan-card .plan {
+body main.card-container section.card-info div.card-plan div.plan {
   display: flex;
+  align-items: center;
 }
-body main .info .plan-card .plan img {
-  width: -moz-fit-content;
-  width: fit-content;
-  height: 100%;
+body main.card-container section.card-info div.card-plan div.plan img.plan-icon {
+  width: 48px;
+  height: auto;
   margin-right: 20px;
 }
-body main .info .plan-card .plan .plan-price {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-body main .info .plan-card .plan .plan-price .plan-name {
+body main.card-container section.card-info div.card-plan div.plan div.plan-detail p.plan-name {
+  font-size: 0.87rem;
+  font-weight: 900;
   color: hsl(223, 47%, 23%);
-  font-weight: 700;
+  margin-bottom: 0.25rem;
 }
-body main .info .plan-card .plan .plan-price .price {
-  color: hsl(224, 23%, 55%);
+body main.card-container section.card-info div.card-plan div.plan div.plan-detail p.plan-price {
+  font-size: 0.89rem;
+  font-weight: 500;
 }
-body main .info .plan-card .change {
+body main.card-container section.card-info div.card-plan button.plan-change {
+  font-size: 0.8rem;
   font-weight: 700;
+  border: none;
+  background: none;
   color: hsl(245, 75%, 52%);
   text-decoration: underline;
 }
-body main .info .plan-card .change:hover {
-  text-decoration: none;
-  color: rgba(56, 41, 224, 0.7);
+body main.card-container section.card-info div.card-plan button.plan-change:active,
+body main.card-container section.card-info div.card-plan button.plan-change:hover {
   cursor: pointer;
+  text-decoration: none;
+  color: rgba(56, 41, 224, 0.8);
 }
-body main .info button {
-  color: white;
-  background-color: hsl(245, 75%, 52%);
-  font-weight: 700;
+body main.card-container section.card-info button.card-payment-btn {
   width: 100%;
-  outline: none;
+  height: 50px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  background-color: hsl(245, 75%, 52%);
+  color: hsl(225, 100%, 94%);
   border: none;
   border-radius: 10px;
-  box-shadow: 0 10px 15px rgba(56, 41, 224, 0.3);
+  box-shadow: 0px 15px 20px 0 rgba(56, 41, 224, 0.25);
 }
-body main .info button:hover {
-  background-color: rgba(56, 41, 224, 0.7);
+body main.card-container section.card-info button.card-payment-btn:active,
+body main.card-container section.card-info button.card-payment-btn:hover {
+  background-color: rgba(56, 41, 224, 0.75);
+  color: white;
   cursor: pointer;
 }
-body main .info p.cancel {
-  color: hsl(224, 23%, 55%);
+body main.card-container section.card-info button.card-cancel-btn {
+  font-size: 0.95rem;
   font-weight: 700;
+  border: none;
+  background: none;
 }
-body main .info p.cancel:hover {
-  cursor: pointer;
+body main.card-container section.card-info button.card-cancel-btn:active,
+body main.card-container section.card-info button.card-cancel-btn:hover {
   color: hsl(223, 47%, 23%);
+  cursor: pointer;
 }
 
-@media (min-width: 375px) and (max-width: 1439px) {
-  body {
-    background-image: url(source/images/pattern-background-mobile.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  body main {
-    width: 330px;
-    height: 570px;
-  }
-  body main .info {
-    padding: 35px 25px;
-  }
-  body main .info h1 {
-    font-size: 1.4rem;
-  }
-  body main .info p {
-    font-size: 0.9rem;
-    padding: 0 15px;
-    line-height: 1.5rem;
-  }
-  body main .info .plan-card {
-    height: 80px;
-    padding: 15px;
-  }
-  body main .info .plan-card .plan .plan-price .plan-name,
-  body main .info .plan-card .plan .plan-price .price {
-    font-size: 0.9rem;
-  }
-  body main .info .plan-card .change {
-    font-size: 0.8rem;
-  }
-  body main .info button {
-    height: 50px;
-  }
-}
 @media (min-width: 1440px) {
   body {
-    background-image: url(source/images/pattern-background-desktop.svg);
+    background-image: url(./sources/images/pattern-background-desktop.svg);
+    background-position: top;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
   }
-  body main {
+  body main.card-container {
     width: 450px;
-    height: 700px;
+    height: 697px;
   }
-  body main .info {
-    padding: 50px 45px;
+  body main.card-container img.cover-image {
+    width: 100%;
+    height: 252px;
   }
-  body main .info h1 {
-    font-size: 2rem;
+  body main.card-container section.card-info {
+    padding: 45px 48px 48px 48px;
   }
-  body main .info p {
-    font-size: 1rem;
-    line-height: 1.7rem;
+  body main.card-container section.card-info h1.card-title {
+    font-size: 1.75rem;
+    font-weight: 900;
+    margin-bottom: -12px;
   }
-  body main .info .plan-card {
+  body main.card-container section.card-info p.card-detail {
+    font-size: 1.01rem;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 1.6rem;
+    margin-bottom: -10px;
+  }
+  body main.card-container section.card-info div.card-plan {
+    width: 100%;
     height: 100px;
-    padding: 25px;
+    padding: 24px;
   }
-  body main .info .plan-card .change {
+  body main.card-container section.card-info div.card-plan div.plan img.plan-icon {
+    margin-right: 20px;
+  }
+  body main.card-container section.card-info div.card-plan div.plan div.plan-detail p.plan-name {
+    font-size: 1.01rem;
+    font-weight: 900;
+    margin-bottom: 5px;
+  }
+  body main.card-container section.card-info div.card-plan div.plan div.plan-detail p.plan-price {
+    font-size: 1.01rem;
+    font-weight: 500;
+  }
+  body main.card-container section.card-info div.card-plan button.plan-change {
     font-size: 0.9rem;
-  }
-  body main .info button {
-    height: 50px;
+    font-weight: 700;
   }
 }
