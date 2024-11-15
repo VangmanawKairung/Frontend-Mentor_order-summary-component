@@ -45,7 +45,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Frontend-Mentor_order-summary-component](https://github.com/VangmanawKairung/Frontend-Mentor_order-summary-component?tab=readme-ov-file)
+- Solution URL: [Order summary card using HTML and CSS (Sass)](https://www.frontendmentor.io/solutions/order-summary-card-using-html-and-css-sass-R8WYW4heqi)
 - Live Site URL: [Frontend Mentor | Order summary card](https://vangmanawkairung.github.io/Frontend-Mentor_order-summary-component/)
 
 ## My process
